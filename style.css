@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Elegant, modern font */
+    font-family: 'Lora', serif; /* Elegant serif font */
 }
 
 body {
@@ -26,7 +26,7 @@ body {
     padding: 15px;
     text-align: center;
     font-size: 2em; /* Slightly smaller for a refined look */
-    font-weight: 600;
+    font-weight: 700; /* Bold weight for Lora */
     text-transform: capitalize; /* More elegant than uppercase */
     letter-spacing: 1px;
     color: #ffffff;
@@ -59,8 +59,8 @@ body {
 #nav_div ul li a {
     color: #234e52; /* Dark teal text */
     text-decoration: none;
-    font-size: 1em;
-    font-weight: 400;
+    font-size: 1.1em; /* Slightly larger for Lora's readability */
+    font-weight: 400; /* Regular weight for Lora */
     padding: 8px 15px;
     border-radius: 20px; /* Rounded buttons for a modern look */
     transition: all 0.3s ease;
@@ -115,7 +115,7 @@ body {
     border: none;
     padding: 8px 12px;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 700; /* Bold weight for Lora */
     cursor: pointer;
     position: absolute;
     right: 10px;
@@ -144,7 +144,7 @@ body {
         width: 100%;
         border-bottom: 1px solid #b2f5ea;
         position: absolute;
-        top: 70px; /* Adjust based on new header height */
+        top: 70px; /* Adjust based on header height */
         left: 0;
         z-index: 9;
     }
