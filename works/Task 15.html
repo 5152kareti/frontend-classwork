@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        
+        button {
+            background-color: #28a3a7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218883;
+        }
+
+        
+        #output_div {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Age Calculator</h2>
+        <label for="dob_input">Enter your Date of Birth:</label>
+        <input type="date" id="dob_input">
+        <br><br>
+        <button onclick="calculate_age()">Calculate Age</button>
+        <p id="output_div"></p>
+    </div>
+
+    <script>
+        function calculate_age() {
+            
+            let current_year = new Date().getFullYear();
+
+            
+            let dob_input = document.getElementById("dob_input").value;
+            if (!dob_input) {
+                document.getElementById("output_div").innerHTML = "Please enter your date of birth.";
+                return;
+            }
+
+            let dob_year = new Date(dob_input).getFullYear();
+            let age = current_year - dob_year;
+            let msg = "You are " + age + " years old!";
+            document.getElementById("output_div").innerHTML = msg;
+        }
+    </script>
+
+</body>
+</html>
