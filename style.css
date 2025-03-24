@@ -1,266 +1,183 @@
 /* style.css */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Elegant, modern font */
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-    color: #e0e0e0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
+    background: #f5f5f4; /* Soft, warm beige background */
+    color: #234e52; /* Dark teal text for readability */
+    line-height: 1.6;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Background Effects */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 15% 25%, rgba(0, 255, 255, 0.15) 0%, transparent 25%),
-                radial-gradient(circle at 85% 75%, rgba(255, 0, 255, 0.15) 0%, transparent 25%);
-    z-index: -1;
-    animation: glowShift 12s infinite ease-in-out;
-}
-
-@keyframes glowShift {
-    0% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.05); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 0.6; }
+/* Main Container for Layout */
+.main_container {
+    display: flex;
+    flex-direction: column; /* Stack nav and content vertically */
+    min-height: calc(100vh - 70px); /* Adjust for header height */
 }
 
 /* Header Styling */
 .header_div {
-    background: linear-gradient(45deg, #00ffcc, #ff00ff, #00ccff);
-    color: #fff;
-    padding: 1.5rem;
+    background: linear-gradient(90deg, #115e59, #2c7a7b); /* Deep teal gradient */
+    padding: 15px;
     text-align: center;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    position: fixed;
+    font-size: 2em; /* Slightly smaller for a refined look */
+    font-weight: 600;
+    text-transform: capitalize; /* More elegant than uppercase */
+    letter-spacing: 1px;
+    color: #ffffff;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 280px;
-    height: 120px;
-    z-index: 1000;
-    box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    text-transform: uppercase;
-    animation: headerGlow 3s infinite alternate;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes headerGlow {
-    0% { box-shadow: 0 0 15px rgba(0, 255, 204, 0.3); }
-    100% { box-shadow: 0 0 25px rgba(0, 255, 204, 0.6); }
-}
-
-/* Sidebar Styling */
+/* Navigation Styling */
 #nav_div {
-    width: 280px;
-    height: 100vh;
-    position: fixed;
-    top: 120px;
-    left: 0;
-    background: rgba(20, 20, 40, 0.95);
-    padding: 1.5rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    overflow-y: auto;
-    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.4);
+    background: #e6fffa; /* Light teal for nav */
+    padding: 10px;
+    border-bottom: 1px solid #b2f5ea; /* Subtle teal border */
+    transition: all 0.3s ease;
 }
 
-.task-list {
+#nav_div ul {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+    flex-wrap: wrap; /* Allow links to wrap if needed */
+    justify-content: center;
+    gap: 10px; /* Add spacing between links */
 }
 
-.task-button {
-    width: 100%;
-    padding: 1.2rem;
-    text-align: left;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #e0e0e0;
-    background: linear-gradient(90deg, rgba(50, 50, 70, 0.9), rgba(70, 70, 90, 0.9));
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+#nav_div ul li {
+    margin: 5px 0;
+}
+
+#nav_div ul li a {
+    color: #234e52; /* Dark teal text */
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 400;
+    padding: 8px 15px;
+    border-radius: 20px; /* Rounded buttons for a modern look */
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: #ffffff; /* White background for links */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.task-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: 0;
+#nav_div ul li a:hover {
+    background: #38b2ac; /* Vibrant teal on hover */
+    color: #ffffff;
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-.task-button:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.task-button:hover {
-    background: linear-gradient(90deg, #00ffcc, #ff00ff);
-    color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 255, 204, 0.5);
-}
-
-.task-button.active {
-    background: linear-gradient(90deg, #ff00ff, #00ffcc);
-    color: #fff;
-    box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
-    transform: scale(1.03);
-}
-
-.task-button span {
-    position: relative;
-    z-index: 1;
-}
-
-/* Click Animation */
-.task-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+/* Active link styling */
+#nav_div ul li a.active {
+    background: #38b2ac; /* Vibrant teal for active link */
+    color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Content Styling */
 #content_div {
-    margin-left: 280px;
-    padding: 2.5rem;
-    flex-grow: 1;
-    max-width: calc(100% - 280px);
-    background: rgba(10, 10, 30, 0.9);
-    border-radius: 15px;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    background: #ffffff; /* White background for content */
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px; /* Limit width for better readability */
+    border-radius: 10px;
+    border: 1px solid #e2e8f0; /* Subtle border for definition */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 #content_frame {
     border: none;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
     width: 100%;
-    height: 800px;
-    transition: all 0.4s ease;
+    height: 600px;
 }
 
 #content_frame:hover {
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-    transform: scale(1.02);
+    transform: scale(1.005); /* Subtle zoom effect */
+}
+
+/* Navigation toggle button for mobile */
+.nav-toggle {
+    display: none;
+    background: #38b2ac;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+    background: #2c7a7b;
+}
+
+/* Collapsed navigation for mobile */
+.nav-collapsed {
+    display: none;
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-    .header_div {
-        font-size: 1.8rem;
-        width: 220px;
-        height: 100px;
-    }
-
-    #nav_div {
-        width: 220px;
-        top: 100px;
-    }
-
-    #content_div {
-        margin-left: 220px;
-        max-width: calc(100% - 220px);
-        padding: 2rem;
-    }
-
-    #content_frame {
-        height: 700px;
-    }
-}
-
 @media (max-width: 768px) {
-    .header_div {
-        font-size: 1.6rem;
-        width: 180px;
-        height: 80px;
+    .main_container {
+        flex-direction: column;
     }
 
     #nav_div {
-        width: 180px;
-        top: 80px;
+        display: none;
+        width: 100%;
+        border-bottom: 1px solid #b2f5ea;
+        position: absolute;
+        top: 70px; /* Adjust based on new header height */
+        left: 0;
+        z-index: 9;
+    }
+
+    #nav_div:not(.nav-collapsed) {
+        display: block;
+    }
+
+    #nav_div ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    #nav_div ul li {
+        margin: 10px 0;
     }
 
     #content_div {
-        margin-left: 180px;
-        max-width: calc(100% - 180px);
-        padding: 1.5rem;
+        padding: 10px;
+        margin: 10px auto;
     }
 
     #content_frame {
-        height: 600px;
+        height: 400px;
     }
 
-    .task-button {
-        font-size: 1rem;
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
     .header_div {
-        width: 100%;
-        height: 60px;
-        position: static;
-        font-size: 1.4rem;
+        font-size: 1.6em;
+        padding: 10px;
     }
 
-    #nav_div {
-        width: 100%;
-        height: auto;
-        position: static;
-        padding: 1rem;
-    }
-
-    .task-list {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    .task-button {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    #content_div {
-        margin-left: 0;
-        max-width: 100%;
-        padding: 1rem;
-    }
-
-    #content_frame {
-        height: 500px;
+    .nav-toggle {
+        display: block;
     }
 }
